@@ -7,7 +7,7 @@ body{
 }
 
 header{
-    background-color: #2d25a0;
+    background-color: #2d25a0 ;
 }
 
 .top-header{
@@ -68,13 +68,12 @@ display: flex;
     justify-content: center;
     padding-top: 50px;
     padding-bottom: 50px;
+    overflow: hidden;
 }
 .top-banner{
     width: 80%;
-    background-color: #2d25a0;
     display: flex;
     justify-content: space-between;
-    width: 80%;
     margin-left: 75px;
 }
 
@@ -108,6 +107,37 @@ display: flex;
 .right-nav img{
     width: 556px;
     height: 438px;
+}
+
+
+/* banner animation on load  */
+
+.top-banner .left-nav{
+    animation: slideToRight 2s ease-out 1;
+}
+
+@keyframes slideToRight {
+    from{
+        transform: translateX(-200%);
+    }
+
+    To{
+        transform: translateX(0);
+    }
+}
+
+.top-banner .right-nav{
+    animation: slideToLeft 2s ease-out 1;
+}
+
+@keyframes slideToLeft {
+    from{
+        transform: translateX(200%);
+    }
+
+    To{
+        transform: translateX(0);
+    }
 }
 
 
@@ -162,6 +192,18 @@ main{
 }
 
 
+/* Card Transition */
+
+.single-card:hover .card-image img{
+    transform: scale(1.1);
+    transition: transform 1s;
+}
+
+.card-image{
+    overflow: hidden;
+}
+
+
 /* Section two Styles */
 
 .section-two{
@@ -174,6 +216,7 @@ main{
 .sec-two-left{
     margin-right: 40px;
 }
+
 
 .section-two-group{
     width: 70%;
@@ -204,6 +247,33 @@ main{
 .sec-two-right img{
     width: 467px;
     height: 327px;
+}
+
+
+/* Section Two Animation  */
+
+.section-two:hover img{
+    animation: rotating 5s linear 0s infinite;
+}
+
+@keyframes rotating {
+
+    0%{
+        transform: translateY(0) rotate(0deg);
+    }
+    25%{
+        transform: translateY(-10px) rotate(-2deg);
+    }
+    50%{
+        transform: translateY(0) rotate(0deg);
+    }
+    75%{
+        transform: translateY(-10px) rotate(2deg);
+    }
+    100%{
+        transform: translateY(0) rotate(0deg);
+    }
+
 }
 
 
@@ -250,3 +320,149 @@ main{
 }
 
 
+.mobile-menu{
+    display: none;
+}
+
+/* Responsive Styles start here  */
+
+
+@media only screen and (max-width: 688px) {
+    
+
+    .top-header{
+        padding-top: 0px;
+    }
+    .nav-items{
+        display: none;
+    }
+
+    .navbar .right-nav{
+        margin-top: 30px;
+    }
+
+    .top-banner{
+        flex-wrap: wrap;
+        margin-left: 0px;
+    }
+
+    .top-banner-title h1 {
+        font-size: 36px;
+        line-height: 46px; 
+    }
+
+    .right-nav{
+        margin-top: 63px;
+    }
+
+    .right-nav img {
+        width: 329px;
+        height: 259px;
+    }
+
+    .bottom-header .left-nav {
+        padding-right: 0px;
+    }
+    
+    .bottom-header{
+        padding-top: 30px;
+    }
+
+    .bottom-header .top-banner-btn {
+    margin-top: 0;
+}
+    
+    .cards {
+    grid-template-columns: repeat(1, 1fr);
+    }
+
+    .section-two {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    
+    .section-two-group {
+        flex-wrap: wrap;
+    }
+
+    .section-two-group{
+        width: 78%;
+        flex-wrap: wrap;
+    }
+
+    .sec-two-title h2 {
+        font-size: 30px;
+    }
+
+    .sec-two-left {
+        margin-right: 0px;
+    }
+
+    
+    .sec-two-right img {
+        width: 328px;
+        height: 248px;
+        margin-left: -11px;
+        margin-top: 70px;
+    }
+
+    .first-footer img {
+        width: 271px;
+        height: 63px;
+    }
+
+    /* Mobile menu styles */
+
+    .mobile-menu{
+        display: block;
+    }
+
+    .mobile-menu input{
+        display: none;
+    }
+
+    .fa-bars{
+    position: absolute;
+    top: 36px;
+    left: 41px;
+    }
+
+    input:checked ~ label i{
+        transform: rotate(90deg);
+        transition: 1s;
+    }
+
+    input:not(:checked) ~ label i{
+        transform: rotate(180deg);
+        transition: 1s;
+    }
+
+   .mobile-menu-items ul li{
+        display: none;
+        margin-bottom: 10px;
+    }
+
+    .mobile-menu input:checked ~ .mobile-menu-items ul li{
+        display: block;
+    }
+
+    .mobile-menu-items ul li {
+        list-style-type: none;
+    }
+
+    .mobile-menu-items ul li a{
+        color: white;
+        text-decoration: none;
+    }
+
+   
+    .mobile-menu label i{
+    color: white;
+    font-size: 24px;
+    }
+
+
+
+
+}
